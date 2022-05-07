@@ -14,7 +14,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     click_on "New Quote"
 
-    fill_in "Text", with: @quote.text
+    fill_in "Content", with: @quote.content
     click_on "Create Quote"
 
     assert_text "Quote was successfully created"
@@ -25,7 +25,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     click_on "Edit", match: :first
 
-    fill_in "Text", with: @quote.text
+    fill_in "Content", with: @quote.content
     click_on "Update Quote"
 
     assert_text "Quote was successfully updated"
