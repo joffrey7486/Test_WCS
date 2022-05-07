@@ -5,3 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
+User.destroy_all
+Quote.destroy_all
+
+20.times do
+    first_name = Faker::Name.first_name,
+    last_name = Faker::Name.last_name,
+    email = "#{first_name}-#{last_name}@yopmail.com"
+
+    User.create(
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: '123456'
+    )
+end
+
+50.times do
+    Quote.create(
+        content: Faker::Quote.famous_last_words,
+        user: User.all.sample
+    )
+end
+
+puts "Created #{User.count} users"
+puts "Created #{Quote.count} quotes"
+
