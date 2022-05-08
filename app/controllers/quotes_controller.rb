@@ -2,26 +2,25 @@ class QuotesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_quote, only: %i[ show edit update destroy ]
 
-  # GET /quotes or /quotes.json
+
   def index
     @quotes = Quote.all
   end
 
-  # GET /quotes/1 or /quotes/1.json
+
   def show
     @quote = Quote.find(params[:id])
   end
 
-  # GET /quotes/new
   def new
     @quote = Quote.new
   end
 
-  # GET /quotes/1/edit
+ 
   def edit
   end
 
-  # POST /quotes or /quotes.json
+ 
   def create
     @quote = Quote.new(quote_params)
 
@@ -64,7 +63,6 @@ class QuotesController < ApplicationController
       @quote = Quote.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def quote_params
       params.require(:quote).permit(:content).merge(user_id: current_user.id)
     end
