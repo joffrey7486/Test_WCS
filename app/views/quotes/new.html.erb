@@ -1,5 +1,8 @@
 <h1>New Quote</h1>
+<div class="new-quote">
+    <%= render 'form', quote: @quote %>
 
-<%= render 'form', quote: @quote %>
-
-<%= link_to 'Back', quotes_path %>
+    <div class="d-flex justify-content-center">
+        <%= link_to 'Back', quotes_path, class:"btn btn-secondary m-2" %>
+    </div>
+</div>
