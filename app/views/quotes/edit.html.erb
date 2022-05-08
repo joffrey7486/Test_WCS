@@ -1,6 +1,10 @@
 <h1>Editing Quote</h1>
+<div class="d-flex">
+    <%= render 'form', quote: @quote, class:"btn btn-info m-2" %>
+</div>
 
-<%= render 'form', quote: @quote %>
-
-<%= link_to 'Show', @quote %> |
-<%= link_to 'Back', quotes_path %>
+<div class="d-flex">
+    <%= link_to 'Show', @quote, class:"btn btn-primary m-2"  %> 
+    
+    <%= link_to 'Back', quotes_path, class:"btn btn-secondary m-2" %>
+</div>
