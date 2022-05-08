@@ -2,6 +2,7 @@
 
 <p>
   <strong class="display-3"></p><%= @quote.content %></strong>
+  <p class="text-muted"><%= @quote.user.first_name %> <%= @quote.user.last_name %></p>
 </p>
 <div class="d-flex">
   <% if @quote.user == current_user %>
