@@ -36,7 +36,7 @@ class QuotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quotes/1 or /quotes/1.json
+
   def update
     respond_to do |format|
       if @quote.update(quote_params)
@@ -49,7 +49,7 @@ class QuotesController < ApplicationController
     end
   end
 
-  # DELETE /quotes/1 or /quotes/1.json
+
   def destroy
     @quote.destroy
 
@@ -60,13 +60,12 @@ class QuotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_quote
       @quote = Quote.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:content)
+      params.require(:quote).permit(:content).merge(user_id: current_user.id)
     end
 end
